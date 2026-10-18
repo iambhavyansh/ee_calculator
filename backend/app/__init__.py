@@ -1,0 +1,2 @@
+"""EE Calculator Backend Application."""
+

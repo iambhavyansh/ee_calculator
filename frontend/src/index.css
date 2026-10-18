@@ -1,0 +1,194 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 10%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --radius: 0.5rem;
+
+    /* Default Blue Accent (Light) */
+    --primary: 221 83% 53%;
+    --primary-foreground: 210 40% 98%;
+    --ring: 221 83% 53%;
+  }
+
+  .dark {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 95%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 95%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 95%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+
+    /* Default Blue Accent (Dark) */
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 47% 11%;
+    --ring: 217 91% 60%;
+  }
+
+  /* 6 Curated Accent Colors */
+  /* 1. Blue */
+  [data-accent="blue"] {
+    --primary: 221 83% 53%;
+    --primary-foreground: 210 40% 98%;
+    --ring: 221 83% 53%;
+  }
+  .dark[data-accent="blue"] {
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 47% 11%;
+    --ring: 217 91% 60%;
+  }
+
+  /* 2. Violet */
+  [data-accent="violet"] {
+    --primary: 262 83% 58%;
+    --primary-foreground: 210 40% 98%;
+    --ring: 262 83% 58%;
+  }
+  .dark[data-accent="violet"] {
+    --primary: 263 70% 68%;
+    --primary-foreground: 222 47% 11%;
+    --ring: 263 70% 68%;
+  }
+
+  /* 3. Emerald */
+  [data-accent="emerald"] {
+    --primary: 158 64% 42%;
+    --primary-foreground: 210 40% 98%;
+    --ring: 158 64% 42%;
+  }
+  .dark[data-accent="emerald"] {
+    --primary: 156 72% 52%;
+    --primary-foreground: 222 47% 11%;
+    --ring: 156 72% 52%;
+  }
+
+  /* 4. Rose */
+  [data-accent="rose"] {
+    --primary: 346 77% 50%;
+    --primary-foreground: 355 100% 97%;
+    --ring: 346 77% 50%;
+  }
+  .dark[data-accent="rose"] {
+    --primary: 349 89% 65%;
+    --primary-foreground: 355 100% 97%;
+    --ring: 349 89% 65%;
+  }
+
+  /* 5. Amber */
+  [data-accent="amber"] {
+    --primary: 38 92% 50%;
+    --primary-foreground: 48 96% 12%;
+    --ring: 38 92% 50%;
+  }
+  .dark[data-accent="amber"] {
+    --primary: 43 96% 56%;
+    --primary-foreground: 26 83% 14%;
+    --ring: 43 96% 56%;
+  }
+
+  /* 6. Cyan */
+  [data-accent="cyan"] {
+    --primary: 189 94% 43%;
+    --primary-foreground: 210 40% 98%;
+    --ring: 189 94% 43%;
+  }
+  .dark[data-accent="cyan"] {
+    --primary: 187 92% 54%;
+    --primary-foreground: 222 47% 11%;
+    --ring: 187 92% 54%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Hide arrows/spinners on number inputs */
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+}
+
+/* Plotly modebar: align all buttons in a single straight line at bottom */
+.js-plotly-plot .plotly .modebar-container {
+  top: auto !important;
+  bottom: 8px !important;
+  right: 14px !important;
+  left: auto !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+}
+
+.js-plotly-plot .plotly .modebar {
+  position: static !important;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  background: hsl(var(--card) / 0.85) !important;
+  backdrop-filter: blur(4px) !important;
+  border: 1px solid hsl(var(--border)) !important;
+  border-radius: 6px !important;
+  padding: 2px 4px !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+}
+
+.js-plotly-plot .plotly .modebar-group {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: transparent !important;
+}
+
+.js-plotly-plot .plotly .modebar-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 3px !important;
+  height: 22px !important;
+  width: 22px !important;
+}
+
+.js-plotly-plot .plotly .modebar-btn svg {
+  position: static !important;
+  top: auto !important;
+  left: auto !important;
+}
+
